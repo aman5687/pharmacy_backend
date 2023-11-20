@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require('express')
 const session = require("express-session");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express()
 const port = process.env.PORT || 4000
 
@@ -28,6 +29,7 @@ app.use(
 
 
 app.use(express.static('uploads'));
+app.use(cors());
 
 // to handle the message session
 app.use((req, res, next)=>{
